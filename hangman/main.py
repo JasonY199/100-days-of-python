@@ -8,8 +8,11 @@ def pick_random_word():
     word_list = []
     with open("words.txt", "r") as f:
         for line in f:
-            word_list.append(line.strip())
+            if "," in line:  # Check if the line contains a comma, because blank lines were used as category separators in words.txt
+                word, category = line.strip().split(",", 1)
+                word_list.append((word, category))
     return random.choice(word_list)
+
 
 def ask_for_letter():
     while True:
@@ -42,21 +45,25 @@ def print_letters_used(letters_used):
     if letters_used:
         print("\nLetters used:", " ".join(sorted(letters_used)), "\n")
 
+def print_divider():
+    print("\n" + "-" * 40 + "\n")
 def main():
     print("Hello, welcome to the game of Hangman!")
     print("Enter 0 to exit the game at any time.\n")
 
-    # initialize game variables
-    word = pick_random_word()  # the word to guess
-    letters_used = []  # keep track of letters used by the user
+    # Pick the word and get its category for the hint
+    word, category = pick_random_word()  # Unpack the word and hint
+    print(f"Hint: The word is a type of {category}.")  # Display the hint
+
+    # Initialize game variables
+    letters_used = []  
     lives_left = len(draw_hangman) - 1
-    times_wrong = 0  # number of times the user guessed wrong
-    feedback_message = ""  # to store feedback for each guess
+    times_wrong = 0  
+    feedback_message = ""  
 
     # main game loop
     while True:
-        if letters_used:  # only print a divider if there are letters used
-            print("\n" + "-" * 40 + "\n")
+        if letters_used: print_divider()  # only print a divider if there are letters used
 
         # Print feedback from previous guess
         if feedback_message:
@@ -85,7 +92,7 @@ def main():
             feedback_message = f"Sorry, the letter '{given_letter}' is not in the word."
             # Check for game over and print final state
             if times_wrong >= lives_left:
-                print("\n" + "-" * 30 + "\n")
+                print_divider()
                 print(feedback_message + "\n")
                 print_drawing(times_wrong)
                 print(f"Game over! The word was: {word}\n")
