@@ -9,6 +9,6 @@ Projects from the 100 Days of Code: The Complete Python Pro Bootcamp on Udemy
 
 > A command-line application in Python that helps you generate secure passwords tailored to your preferences. You can control the number of letters, symbols, and numbers in the password, and manage a history of recently generated passwords for easy reference.
 
-### [Hangman Game](hangman-game/)
+### [Hangman Game](hangman/)
 
 > A classic command-line Hangman game created in Python. The game selects a random word from various categories (e.g., fruits, animals, beverages) and provides the player with a hint based on the category. Players guess letters to uncover the word, with a limited number of incorrect guesses allowed before the game ends. This project allowed me to practice control flow, file handling, and user input validation in Python.
