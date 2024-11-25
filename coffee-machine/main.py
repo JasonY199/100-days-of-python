@@ -66,7 +66,7 @@ resources = {
     "water": START_WATER,
     "milk": START_MILK,
     "coffee": START_COFFEE,
-    "money": 0,
+    "money": 0.00,
 }
 
 def clear_screen():
@@ -88,7 +88,7 @@ def print_menu():
 def validate_menu_choice():
     print_menu()
     while True:
-        choice = input(f"{INDENT}What would you like to do? ")
+        choice = input(f"\nWhat would you like to do? ")
         if not choice.isdigit():
             print("You must enter a number.")
             continue
@@ -159,6 +159,7 @@ def reset_machine_resources():
     clear_screen()
 
 def print_resources():
+    clear_screen()
     print("Current resources in machine:")
     print(f"{INDENT}Water: ".ljust(12, " ") + f"{resources["water"]}ml")
     print(f"{INDENT}Milk: ".ljust(12, " ") + f"{resources["milk"]}ml")
@@ -170,11 +171,14 @@ def print_resources():
 
 def shut_down():
     """Shuts down the coffee machine"""
-    print("The coffee machine is shutting down...")
+    print(f"The machine ejects {show_money()}..")
+    print("and screen displays: Shutting down...")
     exit()
 
 def main():
     print(COFFEE_ART)
+    print("You power on the coffee machine and insert $2.00 into the machine...\n\n\n")
+    resources["money"] = 2.00
     time.sleep(2)
     while True:
         # force user to add money if machine has none
