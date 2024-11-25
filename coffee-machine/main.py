@@ -61,9 +61,7 @@ CURRENCY_VALUES = {
     "One Dollar Bills": 1.00,
     "Five Dollar Bills": 5.00,
 }
-START_WATER = 300
-START_MILK = 200
-START_COFFEE = 100
+START_WATER, START_MILK, START_COFFEE = 300, 200, 100
 resources = {
     "water": START_WATER,
     "milk": START_MILK,
@@ -155,14 +153,20 @@ def reset_machine_resources():
     resources["milk"] = START_MILK
     resources["coffee"] = START_COFFEE
     print("You finished topping off the water, milk, and coffee grounds in the machine!")
-    time.sleep(2)
+    time.sleep(1)
+    print("\nReturning to machine main menu in 5...4...")
+    time.sleep(5)
+    clear_screen()
 
 def print_resources():
     print("Current resources in machine:")
     print(f"{INDENT}Water: ".ljust(12, " ") + f"{resources["water"]}ml")
     print(f"{INDENT}Milk: ".ljust(12, " ") + f"{resources["milk"]}ml")
     print(f"{INDENT}Coffee: ".ljust(12, " ") + f"{resources["coffee"]}g")
-    print(f"{INDENT}Money: ".ljust(12, " ") + f"${resources["money"]}")
+    print(f"{INDENT}Money: ".ljust(12, " ") + show_money())
+    print("\nReturning to machine main menu in 7...6...")
+    time.sleep(7)
+    clear_screen()
 
 def shut_down():
     """Shuts down the coffee machine"""
