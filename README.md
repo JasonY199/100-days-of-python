@@ -12,3 +12,7 @@ Projects from the 100 Days of Code: The Complete Python Pro Bootcamp on Udemy
 ### [Hangman Game](hangman/)
 
 > A classic command-line Hangman game created in Python. The game selects a random word from various categories (e.g., fruits, animals, beverages) and provides the player with a hint based on the category. Players guess letters to uncover the word, with a limited number of incorrect guesses allowed before the game ends. This project allowed me to practice control flow, file handling, and user input validation in Python.
+
+### [Coffee Machine](coffee-machine/)
+
+> For this project, I made the logic for a coffee machine. A user is able to choose a type of coffee they would like, and the system, if it has enough ingredients, will make the coffee. (Note: This is just the software side of things for a make-believe coffee machine. The user will just be prompted with results of the coffee, no real coffee will be made.)
