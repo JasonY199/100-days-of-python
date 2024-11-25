@@ -30,6 +30,7 @@ COFFEES = {
     "espresso": {
         "ingredients": {
             "water": 50,
+            "milk": 0,
             "coffee": 18,
         },
         "cost": 1.5,
@@ -101,8 +102,28 @@ def validate_menu_choice():
         print("")
         return choice
 
-def make_coffee(kind):
-    print(f"making a {kind}")
+def make_coffee(menu_number):
+    kind = ""
+    if menu_number == 1:
+        kind = "espresso"
+    elif menu_number == 2:
+        kind = "latte"
+    elif menu_number == 3:
+        kind = "cappuccino"
+    else:
+        raise Exception("Critical Error: Machine does not have that kind of coffee option that was selected!")
+    print(f"\nYou selected {kind}...\n")
+    time.sleep(1)
+    print(f"This requires {COFFEES[kind]["ingredients"]["water"]}ml water and have {resources["water"]}ml in the machine.")
+    time.sleep(1)
+    print(f"This requires {COFFEES[kind]["ingredients"]["milk"]}ml milk and have {resources["milk"]}ml in the machine.")
+    time.sleep(1)
+    print(f"This requires {COFFEES[kind]["ingredients"]["coffee"]}g coffee and have {resources["coffee"]}g in the machine.")
+    time.sleep(1)
+    print(f"This requires {show_money(COFFEES[kind]["cost"])} and have {show_money()} in the machine.\n")
+
+    # TODO: continue here
+    time.sleep(3)
 
 def show_money(amount=float("-inf")):
     """Returns the money in coffee machine in a printable format if no argument is given,
