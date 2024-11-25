@@ -3,7 +3,7 @@ Projects from the 100 Days of Code: The Complete Python Pro Bootcamp on Udemy
 
 ### [Rock, Paper, Scissors](rock-paper-scissors/)
 
-> A simple command-line game of Rock, Paper, Scissors built with Python. This project was done as a project while working on the 100 days of Python course on Udemy. Currently have a trial of Github Copilot, so was utilizing some of that in Visual Studio Code while working on this small project.
+> A simple command-line game of Rock, Paper, Scissors built with Python. This project was done as a project while working on the 100 days of Python course on Udemy. Currently, have a trial of GitHub Copilot, so was utilizing some of that in Visual Studio Code while working on this small project.
 
 ### [PyPassword Generator](pypassword-generator/)
 
