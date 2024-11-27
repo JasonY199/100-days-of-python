@@ -153,7 +153,8 @@ def make_coffee(menu_number):
         time.sleep(2)
         print(f"Done! Enjoy your {kind}!\n\n")
 
-    time.sleep(4)
+    time.sleep(6)
+    clear_screen()
 
 def show_money(amount=float("-inf")):
     """Returns the money in coffee machine in a printable format if no argument is given,
