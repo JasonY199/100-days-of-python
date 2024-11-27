@@ -103,7 +103,6 @@ def validate_menu_choice():
         return choice
 
 def make_coffee(menu_number):
-    kind = ""
     if menu_number == 1:
         kind = "espresso"
     elif menu_number == 2:
@@ -112,18 +111,49 @@ def make_coffee(menu_number):
         kind = "cappuccino"
     else:
         raise Exception("Critical Error: Machine does not have that kind of coffee option that was selected!")
+
+    # notify user of resources required and how much they have in the machine
     print(f"\nYou selected {kind}...\n")
     time.sleep(1)
     print(f"This requires {COFFEES[kind]["ingredients"]["water"]}ml water and have {resources["water"]}ml in the machine.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"This requires {COFFEES[kind]["ingredients"]["milk"]}ml milk and have {resources["milk"]}ml in the machine.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"This requires {COFFEES[kind]["ingredients"]["coffee"]}g coffee and have {resources["coffee"]}g in the machine.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"This requires {show_money(COFFEES[kind]["cost"])} and have {show_money()} in the machine.\n")
+    time.sleep(2)
 
-    # TODO: continue here
-    time.sleep(3)
+    # check if machine has required resources
+    missing_resources = []  # concatenated list of missing resources, if any missing
+    for item, amount in resources.items():
+        if item != "money":
+            if amount < COFFEES[kind]["ingredients"][item]:
+                missing_resources.append(item)
+        else:
+            if amount < COFFEES[kind]["cost"]:
+                missing_resources.append(item)
+
+    # if missing resources detected, notify user and abort
+    if missing_resources:
+        print("Not enough", end=" ")
+        if len(missing_resources) > 1:
+            for i in range(0, len(missing_resources) - 1):
+                print(f"{missing_resources[i]}, and", end=" ")
+        print(missing_resources[-1], end=" ")
+        print("in the coffee machine.\n\n")
+    else:  # enough resources, deduct from machine resources
+        resources["water"] -= COFFEES[kind]["ingredients"]["water"]
+        resources["milk"] -= COFFEES[kind]["ingredients"]["milk"]
+        resources["coffee"] -= COFFEES[kind]["ingredients"]["coffee"]
+        resources["money"] -= COFFEES[kind]["cost"]
+
+        # serve coffee
+        print("Brewing...\n")
+        time.sleep(2)
+        print(f"Done! Enjoy your {kind}!\n\n")
+
+    time.sleep(4)
 
 def show_money(amount=float("-inf")):
     """Returns the money in coffee machine in a printable format if no argument is given,
