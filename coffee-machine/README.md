@@ -12,6 +12,12 @@ The program simulates a coffee machine that can prepare various coffee types bas
 - Allows the user to insert coins and bills into the coffee machine
 - Provides a report of resources and money in the machine
 
+## Screenshots
+
+- Main Menu ![main menu](screenshots/main_menu.png)
+- Brewing a coffee ![brewing a coffee](screenshots/brewing_a_coffee.png)
+- Adding money to the machine ![adding money](screenshots/adding_money.png)
+
 ## Requirements
 
 - Python 3.x
