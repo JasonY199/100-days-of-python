@@ -20,3 +20,8 @@ Projects from the 100 Days of Code: The Complete Python Pro Bootcamp on Udemy
 ### [Quiz Project](quiz-project/)
 
 > The **Quiz Project** is an application that was made to practice **OOP** in **Python**. Even though I know quite a bit about OOP in Python so far, I am going through the course on Udemy to learn best practices and the proper implementation techniques for future personal projects.
+
+
+### [Turtle Dot Painting](turtle-dot-painting/)
+
+> A simple project that uses the Turtle graphics library in Python to create a dot painting. The turtle moves around the screen, changing colors and drawing dots as it goes. This project was a fun way to experiment with the Turtle library and create unique patterns and designs.
