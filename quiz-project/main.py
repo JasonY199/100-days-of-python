@@ -1,0 +1,13 @@
+from question_model import Question
+from data import question_data
+
+# build a question bank from the data in question_data
+# each of these items will be a Question object in the question_bank list
+question_bank = []
+for question in question_data:
+    question_text = question["text"]
+    question_answer = question["answer"]
+    new_question = Question(question["text"], question["answer"])
+    question_bank.append(new_question)
+
+print(question_bank)
