@@ -2,6 +2,7 @@ from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain
 
+
 # build a question bank from the data in question_data
 # each of these items will be a Question object in the question_bank list
 question_bank = []
