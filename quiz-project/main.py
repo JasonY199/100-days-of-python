@@ -17,3 +17,6 @@ quiz = QuizBrain(question_bank)
 # loop through the questions in the quiz
 while quiz.still_has_questions():
     quiz.next_question()
+
+# print the final score
+quiz.final_score()
