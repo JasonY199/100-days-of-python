@@ -16,3 +16,7 @@ Projects from the 100 Days of Code: The Complete Python Pro Bootcamp on Udemy
 ### [Coffee Machine](coffee-machine/)
 
 > For this project, I made the logic for a coffee machine. A user is able to choose a type of coffee they would like, and the system, if it has enough ingredients, will make the coffee. (Note: This is just the software side of things for a make-believe coffee machine. The user will just be prompted with results of the coffee, no real coffee will be made.)
+
+### [Quiz Project](quiz-project/)
+
+> The **Quiz Project** is an application that was made to practice **OOP** in **Python**. Even though I know quite a bit about OOP in Python so far, I am going through the course on Udemy to learn best practices and the proper implementation techniques for future personal projects.
