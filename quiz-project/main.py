@@ -11,5 +11,9 @@ for question in question_data:
     new_question = Question(question["text"], question["answer"])
     question_bank.append(new_question)
 
+# create a QuizBrain object and start the quiz
 quiz = QuizBrain(question_bank)
-quiz.next_question()
+
+# loop through the questions in the quiz
+while quiz.still_has_questions():
+    quiz.next_question()
