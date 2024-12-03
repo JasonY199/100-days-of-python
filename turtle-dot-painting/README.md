@@ -26,6 +26,12 @@ coming soon...
 
     ```pip install -r requirements.txt```
 
-7. Start the application by running the command:
+7. 
+   1. Run the first couple challenges by running the command (don't forget to uncomment the specific challenge in the main.py file that you want to run first.):):
 
-    ```python3 main.py```
+        ```python3 main.py```
+    
+    2. Draw the dot painting by running the command:
+
+        ```python3 dot.py```
+
