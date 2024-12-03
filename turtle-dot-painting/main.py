@@ -1,5 +1,11 @@
-from turtle import Turtle, Screen
+"""This program is a collection of challenges from the 100 Days of Code - The Complete Python Pro Bootcamp for 2021 course on Udemy. Uncomment the function calls to run the challenges."""
 
+from random import randint
+from turtle import Turtle, Screen, colormode
+
+
+# Set the color mode to 255
+colormode(255)
 
 # Create a turtle object
 tim = Turtle()
@@ -8,14 +14,33 @@ tim = Turtle()
 #tim.shape("turtle")
 #tim.color("red")
 
-########################################################################
-## Challenge helper functions
-########################################################################
 
-def draw_square():
+########################################################################
+## Challenge #1 - Draw a square
+
+def draw_square(angle=90, length=100):
+    '''Draws a square with the given angle and length. 
+    Defaults too 90 degrees and 100 units length.'''
     for _ in range(4):
-        tim.forward(100)
-        tim.right(90)
+        tim.right(angle)
+        tim.forward(length)
+
+def go_to_shape_starting_position(side_lengths=100, extra_up=0, extra_right=0):
+    '''Assuming we will be using 100 as length for sides of the shape.
+    If a different length is needed, pass it as an argument.
+    Can also pass extra_up and extra_right to move the starting position.'''
+    tim.penup()
+    tim.left(90)
+    tim.forward((side_lengths // 2) + extra_up)
+    tim.right(90)
+    tim.forward((side_lengths // 2) + extra_right)
+    tim.pendown()
+
+#go_to_shape_starting_position(100)
+#draw_square()
+
+########################################################################
+## Challenge #2 - Draw a dashed line
 
 def draw_dashed_line():
     for _ in range(10):
@@ -24,31 +49,28 @@ def draw_dashed_line():
         tim.forward(10)
         tim.pendown()
 
-def go_to_starting_position_for_triangle():
-    tim.penup()
-    tim.left(90)
-    tim.forward(50)
-    tim.right(90)
-    tim.forward(50)
-    tim.pendown()
-
-########################################################################
-## Challenge #1
-
-#draw_square()
-
-########################################################################
-## Challenge #2
-
 #draw_dashed_line()
 
 ########################################################################
-## Challenge #3
+## Challenge #3 - Draw some shapes
 
-def run_challenge_3():
-    go_to_starting_position_for_triangle()
+def draw_shapes():
+    """Draws the following shapes:
+    Triangle, Square, Pentagon, Hexagon, Heptagon, Octagon, Nonagon, Decagon, Hendecagon, Dodecagon.
+    Picks a random color for each shape."""
+    go_to_shape_starting_position(extra_up=150)
+    for i in range(3, 13):
+        angle = 360 / i
+        tim.color(randint(0, 255), randint(0, 255), randint(0, 255))  # Random color
+        for _ in range(i):
+            tim.right(angle)
+            tim.forward(100)
 
-run_challenge_3()
+#draw_shapes()
+
+########################################################################
+## Challenge #4 - Generate a random walk
+
 
 
 
