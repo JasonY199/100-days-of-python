@@ -109,20 +109,18 @@ def random_walk(steps=10):
 
 #random_walk(100)
 
+########################################################################
+## Challenge #5 - Draw a spirograph
 
+def draw_spirograph(size_of_gap):
+    '''Draws a spirograph with random colors.'''
+    tim.speed("fastest")
+    for _ in range(360 // size_of_gap):
+        tim.color(random_color())
+        tim.circle(200)
+        tim.setheading(tim.heading() + size_of_gap)
 
-
-
-
-
-
-
-
-
-
-
-
-
+#draw_spirograph(4)
 
 
 
