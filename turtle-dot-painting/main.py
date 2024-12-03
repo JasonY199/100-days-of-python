@@ -54,6 +54,10 @@ def draw_dashed_line():
 ########################################################################
 ## Challenge #3 - Draw some shapes
 
+def random_color()-> tuple:
+    '''Returns a random color tuple.'''
+    return (randint(0, 255), randint(0, 255), randint(0, 255))
+
 def draw_shapes():
     """Draws the following shapes:
     Triangle, Square, Pentagon, Hexagon, Heptagon, Octagon, Nonagon, Decagon, Hendecagon, Dodecagon.
@@ -61,7 +65,7 @@ def draw_shapes():
     go_to_shape_starting_position(extra_up=150)
     for i in range(3, 13):
         angle = 360 / i
-        tim.color(randint(0, 255), randint(0, 255), randint(0, 255))  # Random color
+        tim.color(random_color())
         for _ in range(i):
             tim.right(angle)
             tim.forward(100)
@@ -71,7 +75,39 @@ def draw_shapes():
 ########################################################################
 ## Challenge #4 - Generate a random walk
 
+def random_walk(steps=10):
+    '''Generates a random walk with the given number of steps.
+    Note: It's possible for the turtle to move off the screen.'''
+    tim.pensize(10)
+    possible_directions = [0, 90, 180, 270]
+    current_heading = tim.heading()
 
+    # Generate the random walk
+    for _ in range(steps):
+        print(tim.heading())  # Debugging
+        new_random_heading = possible_directions[randint(0, 3)]
+
+        # Prevent the turtle from moving backwards
+        if new_random_heading == 0 and current_heading == 180:
+            new_random_heading = 90
+        elif new_random_heading == 90 and current_heading == 270:
+            new_random_heading = 180
+        elif new_random_heading == 180 and current_heading == 0:
+            new_random_heading = 270
+        elif new_random_heading == 270 and current_heading == 90:
+            new_random_heading = 0
+
+        # New color if the heading changes
+        # Also, set the new heading to the current heading
+        if new_random_heading != current_heading:
+            tim.color(random_color())
+            current_heading = new_random_heading
+        
+        # Set the new heading to the turtle and move forward
+        tim.setheading(new_random_heading)
+        tim.forward(30)
+
+#random_walk(100)
 
 
 
