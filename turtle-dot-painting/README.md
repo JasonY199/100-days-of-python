@@ -1,10 +1,10 @@
 # Turtle Dot Painting
 
-coming soon...
+In this project, I completed a number of challenges using the turtle module in Python. The turtle module allows you to draw shapes and patterns on the screen. I also created a dot painting using the turtle module at the end of the project.
 
 ## How to run the project
 
-1. Ensure Python 3.13.x is installed on your system (what was using during development of this program)
+1. Ensure Python 3.13.x is installed on your system (what I was using during development of this program)
 
 2. Clone the repository
 
