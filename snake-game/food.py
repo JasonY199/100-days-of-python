@@ -20,6 +20,10 @@ class Food(Turtle):
     
     def refresh(self):
         """Move the food to a random location"""
-        random_x = random.randint(-14, 14) * 20
-        random_y = random.randint(-14, 14) * 20
+        while True:
+            random_x = random.randint(-14, 14) * 20
+            random_y = random.randint(-14, 14) * 20
+            # Avoid the area around the scoreboard text
+            if not (-50 < random_x < 50 and 240 < random_y < 290):
+                break
         self.goto(random_x, random_y)

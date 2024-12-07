@@ -60,3 +60,11 @@ class Snake:
     def extend(self):
         """Add a new segment to the snake"""
         self.add_segment(self.segments[-1].position())
+    
+    def get_x(self)-> int:
+        """Return the x position of the snake head"""
+        return int(self.head.xcor())
+    
+    def get_y(self)-> int:
+        """Return the y position of the snake head"""
+        return int(self.head.ycor())
