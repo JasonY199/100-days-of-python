@@ -1,19 +1,27 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
+
+
+# Constants
+SCREEN_WIDTH, SCREEN_HEIGHT = 600, 600
+BACKGROUND_COLOR = "black"
+GAME_TITLE = "Jason's Snake Game"
 
 
 # Set up the screen
 screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.title("Jason's Snake Game")
+screen.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
+screen.bgcolor(BACKGROUND_COLOR)
+screen.title(GAME_TITLE)
 screen.tracer(0)
 
-# Create the snake and food objects
+# Create the needed objects
 snake = Snake()
 food = Food()
+scoreboard = Scoreboard()
 
 # Listen for key presses
 screen.listen()
@@ -31,9 +39,16 @@ while is_playing:
 
     # Detect collision with food
     if snake.head.distance(food) < 15:
-        print("Eating food")
+        print("Eating food")  # Debugging
         food.refresh()
+        scoreboard.increase_score()
         snake.extend()
+    
+    # Detect collision with wall
+    if snake.head.xcor() < -280 or snake.head.xcor() > 280 or snake.head.ycor() < -280 or snake.head.ycor() > 280:
+        print("Hit the wall")  # Debugging
+        scoreboard.game_over()
+        is_playing = False
 
 # Keep the window open
 screen.exitonclick()

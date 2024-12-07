@@ -2,17 +2,24 @@ from turtle import Turtle
 import random
 
 
+# Constants
+FOOD_COLOR = "green"
+FOOD_SHAPE = "circle"
+FOOD_SIZE = 0.7
+
+
 class Food(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("circle")
+        self.shape(FOOD_SHAPE)
         self.penup()
-        self.shapesize(stretch_wid=0.7, stretch_len=0.7)
-        self.color("green")
+        self.shapesize(stretch_wid=FOOD_SIZE, stretch_len=FOOD_SIZE)
+        self.color(FOOD_COLOR)
         self.speed("fastest")
         self.refresh()
     
     def refresh(self):
+        """Move the food to a random location"""
         random_x = random.randint(-14, 14) * 20
         random_y = random.randint(-14, 14) * 20
         self.goto(random_x, random_y)
