@@ -1,5 +1,6 @@
 from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 
@@ -10,8 +11,9 @@ screen.bgcolor("black")
 screen.title("Jason's Snake Game")
 screen.tracer(0)
 
-# Create the snake
+# Create the snake and food objects
 snake = Snake()
+food = Food()
 
 # Listen for key presses
 screen.listen()
@@ -26,6 +28,12 @@ while is_playing:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    # Detect collision with food
+    if snake.head.distance(food) < 15:
+        print("Eating food")
+        food.refresh()
+        snake.extend()
 
 # Keep the window open
 screen.exitonclick()

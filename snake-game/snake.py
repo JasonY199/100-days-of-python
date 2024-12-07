@@ -55,3 +55,7 @@ class Snake:
         '''Move the snake right'''
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+    
+    def extend(self):
+        '''Add a new segment to the snake'''
+        self.add_segment(self.segments[-1].position())
