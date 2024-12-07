@@ -47,9 +47,7 @@ while is_playing:
     
     # Detect collision with wall
     if snake.get_x() < -280 or snake.get_x() > 280 or snake.get_y() < -280 or snake.get_y() > 280:
-        print("Hit the wall")  # Debugging
-        print(f"Snake Head x: {snake.get_x()}")  # Debugging
-        print(f"Snake Head y: {snake.get_y()}")  # Debugging
+        print(f"Hit the wall at: X={snake.get_x()}, Y={snake.get_y()}")  # Debugging
         scoreboard.game_over()
         is_playing = False
 
